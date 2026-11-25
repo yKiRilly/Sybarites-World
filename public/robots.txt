@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sybarites-world.vercel.app/sitemap.xml
+Sitemap: https://www.sybaritesworld.com/sitemap.xml
