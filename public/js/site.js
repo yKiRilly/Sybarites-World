@@ -1328,41 +1328,119 @@ function renderVideoCards() {
       });
     }
 
-    function handleContactSubmit(e) {
-      e.preventDefault();
-      const name = (document.getElementById("contact-name")?.value || "").trim();
-      const email = (document.getElementById("contact-email")?.value || "").trim();
-      const phone = (document.getElementById("contact-phone")?.value || "").trim();
-      const interest = document.getElementById("contact-interest")?.value || "";
-      const message = (document.getElementById("contact-message")?.value || "").trim();
-      const errorBox = document.getElementById("form-error");
-      const feedback = document.getElementById("form-feedback");
+async function handleContactSubmit(e) {
+    e.preventDefault();
 
-      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!name || !emailValid) {
-        if (feedback) feedback.classList.add("hidden");
-        if (errorBox) {
-          errorBox.textContent = (translations[currentLang] && translations[currentLang].form_err_required) || "Por favor, indica tu nombre y un correo electrónico válido.";
-          errorBox.classList.remove("hidden");
+    const form = document.getElementById("contact-form");
+    const errorBox = document.getElementById("form-error");
+    const feedback = document.getElementById("form-feedback");
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    const name = (document.getElementById("contact-name")?.value || "").trim();
+    const email = (document.getElementById("contact-email")?.value || "").trim();
+    const phone = (document.getElementById("contact-phone")?.value || "").trim();
+    const interest = document.getElementById("contact-interest");
+    const message = (document.getElementById("contact-message")?.value || "").trim();
+
+    const messages = {
+        ru: {
+            invalid: "Укажите ваше имя и действительный Email.",
+            sending: "Отправляем...",
+            success: "Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.",
+            error: "Не удалось отправить заявку. Попробуйте ещё раз."
+        },
+        es: {
+            invalid: "Por favor, indica tu nombre y un correo electrónico válido.",
+            sending: "Enviando...",
+            success: "¡Gracias! Tu solicitud se ha enviado correctamente. Nos pondremos en contacto contigo pronto.",
+            error: "No se pudo enviar la solicitud. Inténtalo de nuevo."
+        },
+        en: {
+            invalid: "Please enter your name and a valid email address.",
+            sending: "Sending...",
+            success: "Thank you! Your request has been sent successfully. We will contact you shortly.",
+            error: "Unable to send your request. Please try again."
+        },
+        uk: {
+            invalid: "Вкажіть ваше ім’я та дійсну електронну адресу.",
+            sending: "Надсилаємо...",
+            success: "Дякуємо! Вашу заявку успішно надіслано. Ми зв’яжемося з вами найближчим часом.",
+            error: "Не вдалося надіслати заявку. Спробуйте ще раз."
         }
-        return;
-      }
+    };
 
-      if (errorBox) errorBox.classList.add("hidden");
-      const bodyText = `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "-"}\nInterest: ${interest}\n\nMessage:\n${message || "-"}`;
-      const mailtoLink = document.getElementById("form-mailto-link");
-      const waLink = document.getElementById("form-whatsapp-link");
-      if (mailtoLink) {
-        mailtoLink.href = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent("Sybarites World Cattery - " + name)}&body=${encodeURIComponent(bodyText)}`;
-      }
-      if (waLink) {
-        waLink.href = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(bodyText)}`;
-      }
-      if (feedback) {
-        feedback.classList.remove("hidden");
-        feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
+    const t = messages[currentLang] || messages.es;
+
+    errorBox.classList.add("hidden");
+    feedback.classList.add("hidden");
+
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!name || !emailValid) {
+        errorBox.textContent = t.invalid;
+        errorBox.classList.remove("hidden");
+        return;
     }
+
+    const originalButton = submitButton.innerHTML;
+
+    submitButton.disabled = true;
+    submitButton.textContent = t.sending;
+    submitButton.style.opacity = "0.6";
+
+    try {
+        const response = await fetch(
+            "https://formsubmit.co/ajax/info@sybaritescatscattery.com",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    _subject: "Nueva solicitud — Sybarites World",
+                    _template: "table",
+                    name: name,
+                    email: email,
+                    phone: phone || "-",
+                    interest: interest?.selectedOptions[0]?.textContent || "-",
+                    message: message || "-",
+                    website: "https://www.sybaritesworld.com"
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        if (
+            !response.ok ||
+            (result.success !== true && result.success !== "true")
+        ) {
+            throw new Error("Submission failed");
+        }
+
+        feedback.textContent = t.success;
+        feedback.classList.remove("hidden");
+
+        form.reset();
+
+        feedback.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+
+    } catch (error) {
+        errorBox.textContent = t.error;
+        errorBox.classList.remove("hidden");
+
+        console.error("Contact form error:", error);
+
+    } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButton;
+        submitButton.style.opacity = "1";
+    }
+}
 
     function toggleMobileMenu() {
       const menu = document.getElementById("mobile-menu");
