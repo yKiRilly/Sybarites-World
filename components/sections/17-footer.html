@@ -1,0 +1,205 @@
+
+<footer class="bg-emerald-deep border-t border-gold/25 sybarites-footer">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- LOGO -->
+        <a href="#inicio" class="footer-brand">
+
+            <svg class="footer-crown" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+            </svg>
+
+            <span class="footer-brand-name">
+                SYBARITES
+            </span>
+
+            <span class="footer-brand-description">
+                British Shorthair &amp; British Longhair
+            </span>
+
+            <span class="footer-location">
+                • Costa Brava · España •
+            </span>
+
+        </a>
+
+        <!-- SOCIAL NETWORKS -->
+        <div class="footer-socials">
+
+            <!-- EMAIL -->
+            <a href="mailto:sybaritescattery@gmail.com"
+               class="footer-social-item">
+
+                <span class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                        <path d="m3 6 9 7 9-7"/>
+                    </svg>
+                </span>
+
+                <span>Email</span>
+            </a>
+
+            <!-- WHATSAPP -->
+            <a href="https://wa.me/34600000000"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="footer-social-item">
+
+                <span class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M20.5 11.8a8.5 8.5 0 0 1-12.8 7.4L3 21l1.5-4.8a8.5 8.5 0 1 1 16-4.4Z"/>
+                        <path d="M8 7c-2 3 3 9 6 9l2-2-3-2-1 1-2-2 1-1-2-3Z"/>
+                    </svg>
+                </span>
+
+                <span>WhatsApp</span>
+            </a>
+
+            <!-- INSTAGRAM -->
+            <a href="https://instagram.com/sybarites_world"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="footer-social-item">
+
+                <span class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <rect x="3" y="3" width="18" height="18" rx="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/>
+                    </svg>
+                </span>
+
+                <span>Instagram</span>
+            </a>
+
+            <!-- WECHAT -->
+            <button type="button"
+                    class="footer-social-item"
+                    onclick="document.getElementById('wechat-qr-modal').showModal()">
+
+                <span class="footer-social-circle">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 3C4.6 3 1 6 1 9.5c0 2 1.1 3.7 2.9 4.9L3 17l3-1.6c.9.3 1.9.5 3 .5h.5a6.5 6.5 0 0 1-.5-2.4C9 9.8 12.4 7 16.5 7h.2C15.4 4.6 12.5 3 9 3Z"/>
+                        <path d="M16.5 8C12.9 8 10 10.5 10 13.5S12.9 19 16.5 19c.9 0 1.7-.1 2.4-.4L22 20l-.8-2.5c1.1-1 1.8-2.4 1.8-4C23 10.5 20.1 8 16.5 8Z"/>
+                        <g fill="#0b391b">
+                            <circle cx="6" cy="8" r="1"/>
+                            <circle cx="12" cy="8" r="1"/>
+                            <circle cx="14" cy="12" r=".8"/>
+                            <circle cx="19" cy="12" r=".8"/>
+                        </g>
+                    </svg>
+                </span>
+
+                <span>WeChat</span>
+            </button>
+
+            <!-- REDNOTE -->
+            <button type="button"
+                    class="footer-social-item"
+                    onclick="document.getElementById('rednote-qr-modal').showModal()">
+
+                <span class="footer-social-circle">
+                    <span class="footer-rednote-icon">小红书</span>
+                </span>
+
+                <span>RedNote</span>
+            </button>
+
+        </div>
+
+        <!-- EMAIL ADDRESS -->
+        <a href="mailto:sybaritescattery@gmail.com"
+           class="footer-email">
+            sybaritescattery@gmail.com
+        </a>
+
+        <!-- LEGAL INFORMATION -->
+        <div class="footer-bottom">
+
+            <div class="footer-legal-links">
+
+                <a data-i18n="footer_legal" href="#">
+                    Правовая информация
+                </a>
+
+                <a data-i18n="footer_privacy" href="#">
+                    Политика конфиденциальности
+                </a>
+
+                <a data-i18n="footer_vet" href="#">
+                    Ветеринарные гарантии
+                </a>
+
+            </div>
+
+            <div class="footer-copyright" data-i18n="footer_copy">
+                © 2026 Sybarites World Cattery.
+                Официальный питомник WCF / FIFE.
+                Все права защищены.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- WECHAT QR MODAL -->
+    <dialog id="wechat-qr-modal"
+            class="footer-qr-modal"
+            aria-labelledby="wechat-qr-title"
+            onclick="if(event.target === this) this.close()">
+
+        <div class="footer-qr-content">
+
+            <button type="button"
+                    class="footer-qr-close"
+                    aria-label="Close"
+                    onclick="this.closest('dialog').close()">
+                &times;
+            </button>
+
+            <h2 id="wechat-qr-title">WeChat</h2>
+
+            <p>SYBARITES WORLD</p>
+
+            <img src="/images/wechat-qr.png"
+                 alt="Sybarites World WeChat QR code"
+                 loading="lazy">
+
+            <span>微信 · Scan QR Code</span>
+
+        </div>
+
+    </dialog>
+
+    <!-- REDNOTE QR MODAL -->
+    <dialog id="rednote-qr-modal"
+            class="footer-qr-modal"
+            aria-labelledby="rednote-qr-title"
+            onclick="if(event.target === this) this.close()">
+
+        <div class="footer-qr-content">
+
+            <button type="button"
+                    class="footer-qr-close"
+                    aria-label="Close"
+                    onclick="this.closest('dialog').close()">
+                &times;
+            </button>
+
+            <h2 id="rednote-qr-title">RedNote</h2>
+
+            <p>SYBARITES WORLD</p>
+
+            <img src="/images/rednote-qr.png"
+                 alt="Sybarites World RedNote QR code"
+                 loading="lazy">
+
+            <span>小红书 · Scan QR Code</span>
+
+        </div>
+
+    </dialog>
+
+</footer>

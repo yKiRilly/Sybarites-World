@@ -1,0 +1,73 @@
+<section class="pt-32 sm:pt-36 pb-24 bg-gradient-to-b from-emerald-forest via-emerald-deep to-emerald-forest relative overflow-hidden" id="contacto">
+<!-- Magical Fairy Glow Orbs -->
+<div class="fairy-glow-orb w-[600px] h-[600px] top-1/4 -right-20 bg-gold/20"></div>
+<div class="fairy-glow-orb w-[400px] h-[400px] -bottom-20 -left-10 bg-emerald-mint/30"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="max-w-4xl mx-auto fairytale-card rounded-3xl border-2 border-gold/50 p-8 sm:p-12 shadow-2xl magical-glow relative">
+<img alt="Маленький британский золотой котёнок выглядывает над формой" class="pointer-events-none select-none absolute -top-[86px] sm:-top-[112px] right-6 sm:right-12 w-28 sm:w-36 h-auto z-20 drop-shadow-[0_12px_20px_rgba(0,0,0,0.55)]" src="/images/decoration-7.png"/>
+<div class="text-center max-w-xl mx-auto mb-10">
+<div class="w-14 h-14 rounded-full fairytale-badge flex items-center justify-center text-gold mx-auto mb-3 shadow-lg">
+<svg aria-hidden="true" class="material-symbols-outlined text-headline-sm" fill="currentColor" viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+</div>
+<h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg font-bold gold-foil-text mb-2 text-balance drop-shadow-md" data-i18n="contact_title">Напишите мне</h2>
+<p class="font-body text-body-sm text-dark-on-surface/90 text-pretty font-light" data-i18n="contact_sub">
+            Я с удовольствием отвечу на любые вопросы о родителях, генетических тестах и свободных котятах в будущих пометах.
+          </p>
+</div>
+<form class="space-y-6" id="contact-form" novalidate="" onsubmit="handleContactSubmit(event)">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label class="block font-label text-label-sm uppercase text-gold mb-2" data-i18n="form_name" for="contact-name">Ваше имя и фамилия</label>
+<input class="w-full bg-emerald-forest/85 border border-gold/35 rounded-2xl px-4 py-3 font-body text-body-sm text-dark-on-surface placeholder:text-dark-outline/60 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all shadow-inner" data-i18n-placeholder="form_name_ph" id="contact-name" placeholder="Например, Анна Смирнова" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label text-label-sm uppercase text-gold mb-2" data-i18n="form_email" for="contact-email">Электронная почта</label>
+<input class="w-full bg-emerald-forest/85 border border-gold/35 rounded-2xl px-4 py-3 font-body text-body-sm text-dark-on-surface placeholder:text-dark-outline/60 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all shadow-inner" id="contact-email" placeholder="anna@example.com" required="" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label class="block font-label text-label-sm uppercase text-gold mb-2" data-i18n="form_phone" for="contact-phone">Телефон / WhatsApp / Telegram</label>
+<input class="w-full bg-emerald-forest/85 border border-gold/35 rounded-2xl px-4 py-3 font-body text-body-sm text-dark-on-surface placeholder:text-dark-outline/60 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all shadow-inner" id="contact-phone" placeholder="+34 600 000 000" type="tel"/>
+</div>
+<div>
+<label class="block font-label text-label-sm uppercase text-gold mb-2" data-i18n="form_interest" for="contact-interest">Предпочтение по котенку</label>
+<select class="w-full bg-emerald-forest/85 border border-gold/35 rounded-2xl px-4 py-3 font-body text-body-sm text-dark-on-surface focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all shadow-inner" id="contact-interest">
+<option data-i18n="opt_both" value="both">British Longhair или Shorthair Golden</option>
+<option data-i18n="opt_longhair" value="longhair">British Longhair (длинношерстный)</option>
+<option data-i18n="opt_shorthair" value="shorthair">British Shorthair (короткошерстный)</option>
+<option data-i18n="opt_waiting" value="waiting">Запись в лист ожидания на будущий помет</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label text-label-sm uppercase text-gold mb-2" data-i18n="form_message" for="contact-message">Расскажите немного о себе и вашем доме</label>
+<textarea class="w-full bg-emerald-forest/85 border border-gold/35 rounded-2xl px-4 py-3 font-body text-body-sm text-dark-on-surface placeholder:text-dark-outline/60 focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-all shadow-inner" data-i18n-placeholder="form_message_ph" id="contact-message" placeholder="Был ли у вас опыт с кошками? В каком городе вы живете? Расскажите любые детали, чтобы я могла представить жизнь малыша в вашей семье..." rows="4"></textarea>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2 font-body text-body-xs text-dark-on-surface/80">
+<svg aria-hidden="true" class="material-symbols-outlined text-sm text-gold" fill="currentColor" viewbox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg>
+<span data-i18n="form_privacy">Ваши данные используются исключительно для связи по поводу котенка.</span>
+</div>
+<button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold hover:bg-gold-light text-emerald-deep font-label text-label-sm uppercase font-bold tracking-wider transition-all shadow-xl hover:shadow-gold/30" type="submit">
+<span data-i18n="form_submit">Enviar solicitud</span>
+</button>
+</div>
+</form>
+<div class="hidden mt-6 p-4 rounded-xl bg-red-950/80 border border-red-400/50 text-center text-red-100 font-body text-body-sm" id="form-error"></div>
+<div class="hidden mt-6 p-6 rounded-2xl bg-emerald-forest/90 border border-gold text-center text-gold-light font-body text-body-sm space-y-4" id="form-feedback">
+<p data-i18n="form_fb_text" id="form-feedback-text">Заявка подготовлена! Нажмите кнопку ниже, чтобы отправить её напрямую Ирине через Email или WhatsApp:</p>
+<div class="flex flex-wrap items-center justify-center gap-3">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold text-emerald-deep font-label text-xs uppercase font-bold hover:bg-gold-light transition-all" href="mailto:sybaritescattery@gmail.com" id="form-mailto-link">
+<svg aria-hidden="true" class="material-symbols-outlined text-base" fill="currentColor" viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+<span data-i18n="form_fb_email">Отправить по Email</span>
+</a>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold text-gold hover:bg-gold/15 font-label text-xs uppercase font-bold transition-all" href="https://wa.me/34600000000" id="form-whatsapp-link" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="material-symbols-outlined text-base" fill="currentColor" viewbox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"></path></svg>
+<span data-i18n="form_fb_wa">Отправить в WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>

@@ -1,0 +1,1 @@
+import Site from "../components/Site"; import Script from "next/script"; export default function Page(){return <><Site/><Script src="/js/site.js" strategy="afterInteractive"/></>;}
