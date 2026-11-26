@@ -567,7 +567,7 @@ story_p4_highlight: '«Каждая вязка — это тщательно п�
         form_fb_text: "Заявка подготовлена! Нажмите кнопку ниже, чтобы отправить её напрямую Ирине через Email или WhatsApp:",
         form_fb_email: "Отправить по Email",
         form_fb_wa: "Отправить в WhatsApp",
-        footer_copy: "© 2026 Sybarites World Cattery. Официальный питомник WCF / FIFE. Все права защищены.",
+        footer_copy: "© 2026 Sybarites World Cattery. Официальный питомник WCF. Все права защищены.",
         footer_legal: "Правовая информация",
         footer_privacy: "Политика конфиденциальности",
         footer_vet: "Ветеринарные гарантии",
