@@ -358,3 +358,61 @@
         font-size: 13px;
     }
 }
+/* ========================================
+   MOBILE HEADER CONTACT BUTTON
+======================================== */
+
+.header-mobile-contact {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#contacto {
+    scroll-margin-top: 130px;
+}
+
+@media (max-width: 767px) {
+
+    #main-header .header-mobile-contact {
+        position: absolute;
+        top: 24px;
+        right: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        padding: 7px 9px;
+
+        color: #d4af37;
+        background: rgba(212, 175, 55, 0.05);
+        border: 1px solid rgba(212, 175, 55, 0.35);
+        border-radius: 20px;
+
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
+        text-decoration: none;
+
+        z-index: 60;
+        transition: all 0.25s ease;
+    }
+
+    #main-header .header-mobile-contact:hover,
+    #main-header .header-mobile-contact:active {
+        background: #d4af37;
+        color: #052e16;
+    }
+
+    #main-header .header-mobile-contact svg {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+    }
+
+}
