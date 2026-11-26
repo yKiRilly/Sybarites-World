@@ -2360,3 +2360,195 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
 }
+/* ==========================================
+   SYBARITES WORLD — CUSTOMER REVIEWS
+========================================== */
+
+#review-panel {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#review-panel summary {
+    list-style: none;
+    padding: 10px;
+    color: #d4af37;
+    cursor: pointer;
+}
+
+#review-panel summary::-webkit-details-marker {
+    display: none;
+}
+
+#review-panel summary::after {
+    content: " +";
+}
+
+#review-panel[open] summary::after {
+    content: " −";
+}
+
+/* STAR RATING */
+
+.review-stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 8px;
+}
+
+.review-stars input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.review-stars label {
+    font-size: 38px;
+    color: #65765b;
+    cursor: pointer;
+    line-height: 1.2;
+    transition: color 0.2s ease;
+}
+
+.review-stars input:checked ~ label,
+.review-stars label:hover,
+.review-stars label:hover ~ label {
+    color: #d4af37;
+}
+
+.review-stars input:focus-visible + label {
+    outline: 2px solid #d4af37;
+    outline-offset: 4px;
+}
+
+/* INPUTS */
+
+.review-input {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+
+    background: rgba(2, 49, 15, 0.65);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 14px;
+
+    color: #f1eddf;
+    font-size: 16px;
+    box-sizing: border-box;
+
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.review-input:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.12);
+}
+
+textarea.review-input {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* PHOTO UPLOAD */
+
+.review-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 25px 15px;
+
+    border: 1px dashed rgba(212, 175, 55, 0.6);
+    border-radius: 16px;
+
+    color: #d4af37;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(2, 49, 15, 0.25);
+}
+
+.review-upload input {
+    width: 100%;
+    max-width: 280px;
+    font-size: 12px;
+    color: #e9d7a0;
+}
+
+.review-upload input::file-selector-button {
+    background: #d4af37;
+    color: #02310f;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* SUBMIT BUTTON */
+
+.review-submit {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #f5df91,
+        #d4af37,
+        #b89228
+    );
+
+    color: #02310f;
+    border: none;
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.review-submit:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 25px rgba(212, 175, 55, 0.3);
+}
+
+.review-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+
+    #review-panel {
+        padding: 22px 16px;
+    }
+
+    #review-panel summary {
+        font-size: 22px;
+    }
+
+    .review-stars {
+        gap: 7px;
+    }
+
+    .review-stars label {
+        font-size: 34px;
+    }
+
+    .review-input {
+        font-size: 16px;
+    }
+
+    .review-upload {
+        font-size: 13px;
+    }
+}
