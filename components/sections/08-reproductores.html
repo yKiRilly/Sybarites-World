@@ -1,28 +1,708 @@
 <section class="py-24 bg-gradient-to-b from-emerald-deep via-emerald-forest to-emerald-deep relative overflow-hidden border-b border-gold/40 reveal-on-scroll" id="reproductores">
-<div class="fairy-glow-orb w-[520px] h-[520px] -top-20 right-0 bg-gold/15"></div>
-<div class="fairy-glow-orb w-[420px] h-[420px] bottom-0 -left-20 bg-emerald-mint/20"></div>
-<div class="max-w-7xl mx-auto px-6 relative z-10">
-<div class="text-center max-w-3xl mx-auto mb-14">
-<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full fairytale-badge text-gold font-label text-label-sm uppercase font-semibold mb-3 shadow-lg">
-<svg aria-hidden="true" class="material-symbols-outlined text-sm text-gold" fill="currentColor" viewbox="0 0 24 24"><path d="M9.68 13.69L12 11.93l2.31 1.76-.88-2.85L15.75 9h-2.84L12 6.19 11.09 9H8.25l2.31 1.84-.88 2.85zM20 10c0-4.42-3.58-8-8-8s-8 3.58-8 8c0 2.03.76 3.87 2 5.28V23l6-2 6 2v-7.72c1.24-1.41 2-3.25 2-5.28zm-8-6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"></path></svg>
-<span data-i18n="cats_eyebrow">Элитные линии питомника</span>
-<svg aria-hidden="true" class="material-symbols-outlined text-sm text-gold" fill="currentColor" viewbox="0 0 24 24"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"></path></svg>
-</div>
-<h2 class="font-headline text-headline-lg-mobile lg:text-headline-xl font-bold gold-foil-text mb-4 drop-shadow-md" data-i18n="reprod_title">
-          Наши кошки
-        </h2>
-<p class="font-body text-body-md lg:text-body-lg text-dark-on-surface/90 max-w-2xl mx-auto text-pretty font-light" data-i18n="reprod_desc">
-          Племенные кошки и коты Sybarites World Cattery: British Shorthair и British Longhair золотых окрасов. Нажмите на профиль любой кошки, чтобы открыть подробную карточку.
-        </p>
-<div class="flex items-center justify-center gap-3 mt-6">
-<div class="w-16 h-0.5 bg-gradient-to-r from-transparent to-gold"></div>
-<svg aria-hidden="true" class="material-symbols-outlined text-gold text-sm" fill="currentColor" viewbox="0 0 24 24"><path d="M4.5 11.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4-4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-7.5 1c-2.33 0-4.32 1.45-5.12 3.5h10.24c-.8-2.05-2.79-3.5-5.12-3.5zm-5.5 5.5c0 1.38 1.12 2.5 2.5 2.5.85 0 1.6-.42 2.06-1.07.29.36.73.57 1.24.57s.95-.21 1.24-.57c.46.65 1.21 1.07 2.06 1.07 1.38 0 2.5-1.12 2.5-2.5 0-.55-.18-1.06-.48-1.47H6.98c-.3.41-.48.92-.48 1.47z"></path></svg>
-<div class="w-16 h-0.5 bg-gradient-to-l from-transparent to-gold"></div>
-</div>
-</div>
-<!-- 8 Cat Profiles Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7" id="cats-grid">
-<!-- Populated cleanly from CATS_DATA in script for 100% consistency across languages & modal -->
-</div>
-</div>
+
+    <div class="fairy-glow-orb w-[520px] h-[520px] -top-20 right-0 bg-gold/15"></div>
+
+    <div class="fairy-glow-orb w-[420px] h-[420px] bottom-0 -left-20 bg-emerald-mint/20"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+        <div class="text-center max-w-3xl mx-auto mb-14">
+
+            <!-- BLOODLINES BUTTON -->
+
+            <button
+                type="button"
+                id="bloodlines-open"
+                aria-haspopup="dialog"
+                aria-controls="bloodlines-modal"
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full fairytale-badge text-gold font-label text-label-sm uppercase font-semibold mb-3 shadow-lg bloodlines-trigger"
+            >
+
+                <svg aria-hidden="true"
+                     class="material-symbols-outlined text-sm text-gold"
+                     fill="currentColor"
+                     viewBox="0 0 24 24">
+
+                    <path d="M9.68 13.69L12 11.93l2.31 1.76-.88-2.85L15.75 9h-2.84L12 6.19 11.09 9H8.25l2.31 1.84-.88 2.85zM20 10c0-4.42-3.58-8-8-8s-8 3.58-8 8c0 2.03.76 3.87 2 5.28V23l6-2 6 2v-7.72c1.24-1.41 2-3.25 2-5.28zm-8-6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"></path>
+
+                </svg>
+
+                <span data-i18n="cats_eyebrow">
+                    Элитные линии питомника
+                </span>
+
+                <svg aria-hidden="true"
+                     class="material-symbols-outlined text-sm text-gold"
+                     fill="currentColor"
+                     viewBox="0 0 24 24">
+
+                    <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"></path>
+
+                </svg>
+
+            </button>
+
+            <!-- SECTION TITLE -->
+
+            <h2 class="font-headline text-headline-lg-mobile lg:text-headline-xl font-bold gold-foil-text mb-4 drop-shadow-md"
+                data-i18n="reprod_title">
+
+                Наши кошки
+
+            </h2>
+
+            <p class="font-body text-body-md lg:text-body-lg text-dark-on-surface/90 max-w-2xl mx-auto text-pretty font-light"
+               data-i18n="reprod_desc">
+
+                Племенные кошки и коты Sybarites World Cattery: British Shorthair и British Longhair золотых окрасов. Нажмите на профиль любой кошки, чтобы открыть подробную карточку.
+
+            </p>
+
+            <!-- DECORATIVE DIVIDER -->
+
+            <div class="flex items-center justify-center gap-3 mt-6">
+
+                <div class="w-16 h-0.5 bg-gradient-to-r from-transparent to-gold"></div>
+
+                <svg aria-hidden="true"
+                     class="material-symbols-outlined text-gold text-sm"
+                     fill="currentColor"
+                     viewBox="0 0 24 24">
+
+                    <path d="M4.5 11.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4-4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-7.5 1c-2.33 0-4.32 1.45-5.12 3.5h10.24c-.8-2.05-2.79-3.5-5.12-3.5zm-5.5 5.5c0 1.38 1.12 2.5 2.5 2.5.85 0 1.6-.42 2.06-1.07.29.36.73.57 1.24.57s.95-.21 1.24-.57c.46.65 1.21 1.07 2.06 1.07 1.38 0 2.5-1.12 2.5-2.5 0-.55-.18-1.06-.48-1.47H6.98c-.3.41-.48.92-.48 1.47z"></path>
+
+                </svg>
+
+                <div class="w-16 h-0.5 bg-gradient-to-l from-transparent to-gold"></div>
+
+            </div>
+
+        </div>
+
+        <!-- CAT PROFILES GRID -->
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7"
+             id="cats-grid">
+
+            <!-- Populated from CATS_DATA -->
+
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- ==========================================
+     BLOODLINES MODAL
+========================================== -->
+
+<dialog id="bloodlines-modal"
+        class="bloodlines-modal"
+        aria-labelledby="bloodlines-title">
+
+    <div class="bloodlines-card">
+
+        <!-- CLOSE ICON -->
+
+        <button type="button"
+                class="bloodlines-close"
+                data-bloodlines-close
+                aria-label="Close">
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.6"
+                 aria-hidden="true">
+
+                <path d="M6 6L18 18M18 6L6 18"/>
+
+            </svg>
+
+        </button>
+
+        <!-- GOLDEN CROWN -->
+
+        <div class="bloodlines-crown">
+
+            <svg viewBox="0 0 24 24"
+                 fill="currentColor"
+                 aria-hidden="true">
+
+                <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+
+            </svg>
+
+        </div>
+
+        <div class="bloodlines-brand">
+            SYBARITES WORLD CATTERY
+        </div>
+
+        <h2 id="bloodlines-title"
+            data-bloodlines-i18n="title">
+
+            Nuestras líneas de sangre
+
+        </h2>
+
+        <div class="bloodlines-divider"></div>
+
+        <p data-bloodlines-i18n="p1">
+
+            Sybarites World se fundamenta en prestigiosas líneas de sangre procedentes de reconocidos criaderos como Absolu, de Tatiana Vasyunina; Zolotoi Zamok, de Irina Selezneva; y Galeksy, de Alexandra Shaura.
+
+        </p>
+
+        <p data-bloodlines-i18n="p2">
+
+            Este valioso patrimonio genético constituye la base de nuestro programa de cría, orientado a preservar la belleza, la excelente morfología y el carácter equilibrado del British Golden.
+
+        </p>
+
+        <button type="button"
+                class="bloodlines-close-button"
+                data-bloodlines-close
+                data-bloodlines-i18n="close">
+
+            Cerrar
+
+        </button>
+
+    </div>
+
+</dialog>
+
+
+<!-- ==========================================
+     BLOODLINES STYLES
+========================================== -->
+
+<style>
+
+.bloodlines-trigger {
+    cursor: pointer;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        filter .3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bloodlines-trigger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(212, 175, 55, .4);
+    filter: brightness(1.12);
+}
+
+.bloodlines-trigger:active {
+    transform: scale(.97);
+}
+
+.bloodlines-trigger:focus-visible {
+    outline: 2px solid #e6c76b;
+    outline-offset: 5px;
+}
+
+.bloodlines-modal {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    padding: 0;
+    width: min(680px, calc(100% - 32px));
+    max-height: 90vh;
+    max-height: 90dvh;
+    border: 1px solid rgba(212, 175, 55, .65);
+    border-radius: 28px;
+    background: #092d20;
+    color: #f4ead6;
+    overflow-y: auto;
+    box-shadow: 0 25px 100px rgba(0, 0, 0, .65);
+    overscroll-behavior: contain;
+}
+
+.bloodlines-modal:not([open]) {
+    display: none;
+}
+
+.bloodlines-modal[open] {
+    animation: bloodlinesAppear .35s ease both;
+}
+
+.bloodlines-modal::backdrop {
+    background: rgba(0, 12, 7, .82);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+}
+
+.bloodlines-card {
+    position: relative;
+    padding: 48px 42px 36px;
+    text-align: center;
+    background:
+        radial-gradient(
+            ellipse at top,
+            rgba(39, 104, 62, .45),
+            transparent 70%
+        );
+}
+
+.bloodlines-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(212, 175, 55, .3);
+    background: rgba(212, 175, 55, .08);
+    color: #d4af37;
+    cursor: pointer;
+    transition: background .25s ease;
+}
+
+.bloodlines-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.bloodlines-close:hover {
+    background: rgba(212, 175, 55, .2);
+}
+
+.bloodlines-crown {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(212, 175, 55, .5);
+    border-radius: 50%;
+    background: rgba(212, 175, 55, .07);
+    color: #d4af37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, .1);
+}
+
+.bloodlines-crown svg {
+    width: 36px;
+    height: 36px;
+}
+
+.bloodlines-brand {
+    color: #c9ad70;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.bloodlines-card h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 600;
+    line-height: 1.15;
+    color: #e6c76b;
+    margin: 0 0 20px;
+}
+
+.bloodlines-divider {
+    width: 100px;
+    height: 1px;
+    margin: 0 auto 26px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d4af37,
+        transparent
+    );
+}
+
+.bloodlines-card p {
+    color: #e7e1d3;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 400;
+    margin: 0 0 20px;
+}
+
+.bloodlines-close-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 160px;
+    padding: 13px 30px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(
+        135deg,
+        #e6ce8a,
+        #b99a48
+    );
+    color: #092d20;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.bloodlines-close-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 25px rgba(212, 175, 55, .25);
+}
+
+@keyframes bloodlinesAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* MOBILE VERSION */
+
+@media (max-width: 640px) {
+
+    .bloodlines-modal {
+        width: calc(100% - 24px);
+        border-radius: 22px;
+    }
+
+    .bloodlines-card {
+        padding: 42px 22px 26px;
+    }
+
+    .bloodlines-card h2 {
+        font-size: 32px;
+    }
+
+    .bloodlines-card p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .bloodlines-brand {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .bloodlines-crown {
+        width: 58px;
+        height: 58px;
+    }
+
+    .bloodlines-crown svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .bloodlines-close-button {
+        width: 100%;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .bloodlines-modal[open] {
+        animation: none;
+    }
+
+    .bloodlines-trigger,
+    .bloodlines-close-button {
+        transition: none;
+    }
+
+}
+
+</style>
+
+
+<!-- ==========================================
+     BLOODLINES JAVASCRIPT & TRANSLATIONS
+========================================== -->
+
+<script>
+
+(function () {
+
+    const bloodlinesTranslations = {
+
+        es: {
+            title: "Nuestras líneas de sangre",
+
+            p1: "Sybarites World se fundamenta en prestigiosas líneas de sangre procedentes de reconocidos criaderos como Absolu, de Tatiana Vasyunina; Zolotoi Zamok, de Irina Selezneva; y Galeksy, de Alexandra Shaura.",
+
+            p2: "Este valioso patrimonio genético constituye la base de nuestro programa de cría, orientado a preservar la belleza, la excelente morfología y el carácter equilibrado del British Golden.",
+
+            close: "Cerrar"
+        },
+
+        en: {
+            title: "Our Bloodlines",
+
+            p1: "Sybarites World is founded on prestigious bloodlines from renowned catteries such as Absolu, by Tatiana Vasyunina; Zolotoi Zamok, by Irina Selezneva; and Galeksy, by Alexandra Shaura.",
+
+            p2: "This valuable genetic heritage forms the foundation of our breeding programme, dedicated to preserving the beauty, excellent morphology and balanced temperament of the British Golden.",
+
+            close: "Close"
+        },
+
+        fr: {
+            title: "Nos lignées",
+
+            p1: "Sybarites World repose sur de prestigieuses lignées issues de chatteries reconnues telles qu’Absolu, de Tatiana Vasyunina ; Zolotoi Zamok, d’Irina Selezneva ; et Galeksy, d’Alexandra Shaura.",
+
+            p2: "Ce précieux patrimoine génétique constitue la base de notre programme d’élevage, consacré à la préservation de la beauté, de l’excellente morphologie et du caractère équilibré du British Golden.",
+
+            close: "Fermer"
+        },
+
+        de: {
+            title: "Unsere Blutlinien",
+
+            p1: "Sybarites World basiert auf prestigeträchtigen Blutlinien renommierter Zuchten wie Absolu von Tatiana Vasyunina, Zolotoi Zamok von Irina Selezneva und Galeksy von Alexandra Shaura.",
+
+            p2: "Dieses wertvolle genetische Erbe bildet die Grundlage unseres Zuchtprogramms, das darauf ausgerichtet ist, die Schönheit, den hervorragenden Körperbau und das ausgeglichene Wesen der British Golden zu bewahren.",
+
+            close: "Schließen"
+        },
+
+        zh: {
+            title: "我们的珍贵血统",
+
+            p1: "Sybarites World 以来自知名猫舍的优质血统为基础，包括 Tatiana Vasyunina 的 Absolu、Irina Selezneva 的 Zolotoi Zamok，以及 Alexandra Shaura 的 Galeksy。",
+
+            p2: "这些珍贵的遗传资源构成了我们繁育计划的基础，旨在传承英国金渐层猫的美丽外貌、优秀体型和稳定温和的性格。",
+
+            close: "关闭"
+        },
+
+        ru: {
+            title: "Наши племенные линии",
+
+            p1: "В основе Sybarites World лежат престижные племенные линии известных питомников: Absolu Татьяны Васюниной, Zolotoi Zamok Ирины Селезнёвой и Galeksy Александры Шауры.",
+
+            p2: "Это ценное генетическое наследие составляет основу нашей программы разведения, направленной на сохранение красоты, превосходной морфологии и уравновешенного характера британских золотых кошек.",
+
+            close: "Закрыть"
+        }
+
+    };
+
+
+    function initBloodlines() {
+
+        const modal =
+            document.getElementById("bloodlines-modal");
+
+        const openButton =
+            document.getElementById("bloodlines-open");
+
+        if (!modal || !openButton) return;
+
+        if (modal.dataset.initialized === "true") return;
+
+        modal.dataset.initialized = "true";
+
+        document.body.appendChild(modal);
+
+        let previousOverflow = "";
+
+
+        /* GET CURRENT LANGUAGE */
+
+        function getCurrentLanguage() {
+
+            const language = (
+                document.documentElement.lang || "es"
+            ).toLowerCase().split("-")[0];
+
+            return bloodlinesTranslations[language]
+                ? language
+                : "es";
+
+        }
+
+
+        /* UPDATE TRANSLATIONS */
+
+        function updateLanguage() {
+
+            const language = getCurrentLanguage();
+
+            const dictionary =
+                bloodlinesTranslations[language];
+
+            modal.querySelectorAll(
+                "[data-bloodlines-i18n]"
+            ).forEach(function (element) {
+
+                const key =
+                    element.dataset.bloodlinesI18n;
+
+                if (dictionary[key]) {
+
+                    element.textContent =
+                        dictionary[key];
+
+                }
+
+            });
+
+            modal.querySelector(".bloodlines-close")
+                .setAttribute(
+                    "aria-label",
+                    dictionary.close
+                );
+
+        }
+
+
+        /* OPEN MODAL */
+
+        function openModal() {
+
+            if (modal.open) return;
+
+            updateLanguage();
+
+            previousOverflow =
+                document.body.style.overflow;
+
+            modal.showModal();
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        /* CLOSE MODAL */
+
+        function closeModal() {
+
+            if (modal.open) {
+
+                modal.close();
+
+            }
+
+        }
+
+
+        /* OPEN BUTTON */
+
+        openButton.addEventListener(
+            "click",
+            openModal
+        );
+
+
+        /* CLOSE BUTTONS */
+
+        modal.querySelectorAll(
+            "[data-bloodlines-close]"
+        ).forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                closeModal
+            );
+
+        });
+
+
+        /* CLOSE ON BACKDROP CLICK */
+
+        modal.addEventListener(
+            "click",
+            function (event) {
+
+                if (event.target === modal) {
+
+                    const rect =
+                        modal.getBoundingClientRect();
+
+                    const outside =
+                        event.clientX < rect.left ||
+                        event.clientX > rect.right ||
+                        event.clientY < rect.top ||
+                        event.clientY > rect.bottom;
+
+                    if (outside) {
+
+                        closeModal();
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        /* RESTORE PAGE SCROLL */
+
+        modal.addEventListener(
+            "close",
+            function () {
+
+                document.body.style.overflow =
+                    previousOverflow;
+
+                openButton.focus({
+                    preventScroll: true
+                });
+
+            }
+        );
+
+
+        /* WATCH LANGUAGE CHANGES */
+
+        const observer = new MutationObserver(
+            updateLanguage
+        );
+
+        observer.observe(
+            document.documentElement,
+            {
+                attributes: true,
+                attributeFilter: ["lang"]
+            }
+        );
+
+        updateLanguage();
+
+    }
+
+
+    /* INITIALIZE */
+
+    if (document.readyState === "loading") {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initBloodlines
+        );
+
+    } else {
+
+        initBloodlines();
+
+    }
+
+})();
+
+</script>
