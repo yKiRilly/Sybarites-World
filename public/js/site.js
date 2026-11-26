@@ -1496,4 +1496,146 @@ async function handleContactSubmit(e) {
       document.querySelectorAll(".reveal-on-scroll").forEach(el => observer.observe(el));
     }
 if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeSite, {once:true}); else initializeSite();
-  
+  /* ==========================================
+   CUSTOMER REVIEW FORM — TRANSLATIONS
+   SYBARITES WORLD CATTERY
+========================================== */
+
+const REVIEW_I18N = {
+
+    es: {
+        review_leave: "Dejar una reseña",
+        review_rating: "Tu valoración",
+        review_name: "Tu nombre",
+        review_message: "Tu experiencia",
+        review_photo: "Añadir una foto de tu gatito",
+        review_send: "Enviar reseña",
+        review_notice: "Tu reseña será enviada al criadero y podrá publicarse tras su revisión."
+    },
+
+    en: {
+        review_leave: "Leave a review",
+        review_rating: "Your rating",
+        review_name: "Your name",
+        review_message: "Your experience",
+        review_photo: "Add a photo of your kitten",
+        review_send: "Submit review",
+        review_notice: "Your review will be sent to the cattery and may be published after approval."
+    },
+
+    fr: {
+        review_leave: "Laisser un avis",
+        review_rating: "Votre note",
+        review_name: "Votre nom",
+        review_message: "Votre expérience",
+        review_photo: "Ajouter une photo de votre chaton",
+        review_send: "Envoyer mon avis",
+        review_notice: "Votre avis sera envoyé à la chatterie et pourra être publié après validation."
+    },
+
+    de: {
+        review_leave: "Bewertung schreiben",
+        review_rating: "Ihre Bewertung",
+        review_name: "Ihr Name",
+        review_message: "Ihre Erfahrung",
+        review_photo: "Ein Foto Ihres Kätzchens hinzufügen",
+        review_send: "Bewertung senden",
+        review_notice: "Ihre Bewertung wird an die Katzenzucht gesendet und kann nach Prüfung veröffentlicht werden."
+    },
+
+    zh: {
+        review_leave: "留下评价",
+        review_rating: "您的评分",
+        review_name: "您的姓名",
+        review_message: "分享您的体验",
+        review_photo: "添加您的小猫照片",
+        review_send: "提交评价",
+        review_notice: "您的评价将发送至猫舍，并可能在审核通过后发布。"
+    },
+
+    ru: {
+        review_leave: "Оставить отзыв",
+        review_rating: "Ваша оценка",
+        review_name: "Ваше имя",
+        review_message: "Ваша история",
+        review_photo: "Добавить фотографию котёнка",
+        review_send: "Отправить отзыв",
+        review_notice: "Ваш отзыв будет отправлен владельцу питомника. Публикация возможна после проверки."
+    }
+
+};
+
+/* CONNECT REVIEW TRANSLATIONS */
+
+Object.keys(REVIEW_I18N).forEach((lang) => {
+
+    if (typeof translations !== "undefined") {
+        translations[lang] = {
+            ...translations[lang],
+            ...REVIEW_I18N[lang]
+        };
+    }
+
+    if (typeof EXTRA_I18N !== "undefined") {
+        EXTRA_I18N[lang] = {
+            ...EXTRA_I18N[lang],
+            ...REVIEW_I18N[lang]
+        };
+    }
+
+});
+
+/* UPDATE REVIEW FORM LANGUAGE */
+
+function updateReviewFormLanguage() {
+
+    const lang = (
+        document.documentElement.lang || "es"
+    ).toLowerCase().split("-")[0];
+
+    const dictionary = REVIEW_I18N[lang] || REVIEW_I18N.es;
+
+    document.querySelectorAll(
+        "#review-panel [data-i18n]"
+    ).forEach((element) => {
+
+        const key = element.getAttribute("data-i18n");
+
+        if (dictionary[key]) {
+            element.textContent = dictionary[key];
+        }
+
+    });
+
+}
+
+/* INITIAL LANGUAGE */
+
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        updateReviewFormLanguage
+    );
+
+} else {
+
+    updateReviewFormLanguage();
+
+}
+
+/* AUTOMATIC LANGUAGE SWITCHING */
+
+const reviewLanguageObserver = new MutationObserver(() => {
+
+    updateReviewFormLanguage();
+
+});
+
+reviewLanguageObserver.observe(
+    document.documentElement,
+    {
+        attributes: true,
+        attributeFilter: ["lang"]
+    }
+);
