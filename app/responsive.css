@@ -1463,3 +1463,68 @@ and (orientation: landscape) {
         font-size: 11px;
     }
 }
+/* ==========================================
+   MOBILE HEADER — CONTACT BUTTON
+========================================== */
+
+.hero-mobile-contact {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 1279px) {
+
+    #inicio > header > div > .hero-mobile-contact {
+        display: flex !important;
+        grid-column: 3;
+        grid-row: 1;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 5px;
+        min-height: 44px;
+        width: 100%;
+
+        color: #d4af37;
+        text-decoration: none;
+        font-size: 9px;
+        font-weight: 500;
+        line-height: 1.2;
+
+        z-index: 50;
+        transition: color 0.3s ease;
+    }
+
+    .hero-mobile-contact svg {
+        width: 21px;
+        height: 21px;
+        flex-shrink: 0;
+    }
+
+    .hero-mobile-contact span {
+        font-size: 9px;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .hero-mobile-contact:hover {
+        color: #f5df91;
+    }
+}
+
+@media (max-width: 374px) {
+
+    .hero-mobile-contact span {
+        font-size: 8px;
+    }
+
+    .hero-mobile-contact svg {
+        width: 18px;
+        height: 18px;
+    }
+}
